@@ -148,7 +148,7 @@ object CurrencyManager {
         val exchangeRate: ExchangeRate? = null,
         var value: Double = 0.0
     ) {
-        override fun toString(): String = "$currency, parent: $parent, value: $value, exchangeRate: $exchangeRate"
+        override fun toString(): String = "$currency, parent: [$parent], value: $value, exchangeRate: $exchangeRate"
     }
 
     data class ExchangeResult(val exchangeTransaction: ExchangeTransaction, val result: Double) : Parcelable {
