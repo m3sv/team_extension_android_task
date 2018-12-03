@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.m3sv.teamtask"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        production {
+        }
+
+        mock {
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlin
+
+    testImplementation testDeps.junit.core
+
+    implementation deps.support.appCompat
+    implementation deps.support.recyclerView
+    implementation deps.support.material
+    implementation deps.support.constraintLayout
+    implementation deps.support.legacySupport
+
+    implementation deps.architectureComponents.lifecycle.extensions
+    kapt deps.architectureComponents.room.compiler
+
+    implementation deps.retrofit.core
+    implementation deps.retrofit.rxAdapter
+    implementation(deps.retrofit.gsonConverter) {
+        exclude group: 'com.google.code.gson'
+    }
+    implementation deps.gson
+
+
+    implementation deps.rx.kotlin
+    implementation deps.rx.android
+    implementation deps.rx.extensions
+
+    implementation deps.timber
+
+    implementation deps.dagger.core
+    compileOnly deps.dagger.annotation
+    kapt deps.dagger.compiler
+    implementation deps.dagger.android
+    implementation deps.dagger.androidSupport
+    kapt deps.dagger.annotationProcessor
+
+    implementation project(":common")
+    implementation project(":network")
+
+}

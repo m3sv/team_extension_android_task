@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TeamTask</string>
+    <string name="loading">loading</string>
+    <string name="error">error</string>
+    <string name="success">success</string>
+    <string name="empty">empty</string>
+    <string name="transactions">Transactions</string>
+    <string name="transaction_in_gold">In Gold: %1$f</string>
+    <string name="sum_in_gold">Sum in Gold: %1$f</string>
+    <string name="loading_error">Error while loading data: %1$s</string>
+</resources>
